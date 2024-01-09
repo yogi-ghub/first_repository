@@ -1,0 +1,10 @@
+name: PowerShell Example
+
+on: [push]
+
+jobs:
+  example-job:
+    runs-on: windows-latest
+    steps:
+      - name: Example Step
+        run: Write-Output "Hello, GitHub Actions!"
