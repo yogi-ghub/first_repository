@@ -12,7 +12,7 @@ jobs:
   example-job:
     runs-on: ubuntu-latest
     steps:
-      - name: Example Step
+      - name: checking network high packet loss 
         run: |
             echo "hello world!"
             #!/bin/bash
