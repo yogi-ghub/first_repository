@@ -1,0 +1,41 @@
+name: network high packet loss
+on:
+  workflow_dispatch:
+    inputs:
+      ip_address:
+      description: provide ip address
+      required: true
+      
+
+jobs:
+  example-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checking network high packet loss 
+        run: |
+            echo "hello world!"
+            #!/bin/bash
+
+            # Define the target IP address
+            TARGET_IP="${{ github.events.inputs.ip_address }}"  # Replace with your actual target IP
+
+            # Perform continuous ping for 10 times
+            PING_COUNT=10
+            ping_result=$(ping -c $PING_COUNT $TARGET_IP)
+
+            # Extract packet loss percentage
+            packet_loss=$(echo "$ping_result" | grep -oP '\d+(?=% packet loss)')
+
+            # Check if packet loss percentage is less than 10%
+            if [ "$packet_loss" -lt 10 ]; then
+                echo "Closing the case: Packet loss is within acceptable limits. Packet loss: **$packet_loss%**"
+            elif [ "$packet_loss" -eq 100 ]; then
+                echo "Assigning to NOC team: High packet loss detected (100%)."
+            else
+                echo "Assigning to NOC team: High packet loss detected. Packet loss: **$packet_loss%**"
+            fi
+
+            # Exception handling
+            if [ $? -ne 0 ]; then
+                echo "Error: Ping command failed. Please check network connectivity."
+            fi
