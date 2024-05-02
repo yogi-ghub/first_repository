@@ -1,10 +1,12 @@
 name: PowerShell Example
 
-on: [push]
+on:
+  workflow_dispatch
 
 jobs:
   example-job:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Example Step
-        run: Write-Output "Hello, GitHub Actions!"
+        run: |
+           echo "hello world!"
