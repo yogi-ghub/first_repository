@@ -1,11 +1,6 @@
 name: network high packet loss
 on:
   workflow_dispatch:
-    inputs:
-      ip_address:
-      description: provide ip address
-      required: true
-      
 
 jobs:
   example-job:
@@ -17,7 +12,7 @@ jobs:
             #!/bin/bash
 
             # Define the target IP address
-            TARGET_IP="${{ github.events.inputs.ip_address }}"  # Replace with your actual target IP
+            TARGET_IP="8.8.8.8"  # Replace with your actual target IP
 
             # Perform continuous ping for 10 times
             PING_COUNT=10
