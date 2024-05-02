@@ -1,5 +1,4 @@
-name: PowerShell Example
-
+name: network high packet loss
 on:
   workflow_dispatch:
     inputs:
