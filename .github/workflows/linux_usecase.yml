@@ -15,8 +15,6 @@ jobs:
           echo $SHELL
           echo $USER
           echo $PATH
-          !/bin/bash
-
           # Define the target IP address
           TARGET_IP="8.8.8.8"  # Replace with your actual target IP
 
