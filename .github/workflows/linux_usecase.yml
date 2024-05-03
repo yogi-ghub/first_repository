@@ -15,3 +15,4 @@ jobs:
           echo $SHELL
           echo $USER
           echo $PATH
+          df -h
