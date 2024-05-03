@@ -16,3 +16,7 @@ jobs:
           echo $USER
           echo $PATH
           df -h
+          $?
+          $#
+          $*
+          $0
